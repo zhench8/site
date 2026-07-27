@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>перевозки</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        header {
+            margin: 0;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            border-radius: 5px;
+            background-color: rgb(139, 211, 97);
+            font-size: 25px;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            margin: -5px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        footer {
+            display: flex;
+            width: 100%;
+            height: 200px;
+            background-color: aqua;
+            border-radius: 10px;
+        }
+
+        main {
+            height: 1000px;
+            display: grid;
+            background-color: bisque;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .main-Headline {
+            font-size: 60px;
+        }
+
+        .main-info {
+            display: flex;
+            border-radius: 100px;
+            width: 100%;
+            height: 50%;
+            background-color: aqua;
+        }
+
+        .main-info p {
+            position: relative;
+            font-size: 40px;
+            left: 100px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Название</h1>
+        <h1>телефон</h1>
+    </header>
+    <main>
+        <h1 class="main-Headline">Перевозки по Москве и области</h1>
+        <div class="main-info">
+            <p>узнать подробности</p>
+        </div>
+
+
+
+    </main>
+
+
+    <footer>
+        <P>справочная информация</P>
+    </footer>
+
+
+</body>
+
+</html>

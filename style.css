@@ -5,7 +5,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  word-break: normal;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
 }
 
 html {

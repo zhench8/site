@@ -154,10 +154,8 @@
                         </p>
                     </div>
 
-                    <!-- Добавлен ID для точного поиска кнопки -->
                     <button class="calc-btn" id="main-calc-btn" onclick="result()">Посчитать</button>
 
-                    <!-- Оставлен правильный класс resalt с анимационным классом hidden-fade -->
                     <div class="resalt hidden-fade">
                         <p id="text-result"></p>
                         <p id="text-result-km"></p>
@@ -181,7 +179,7 @@
                         let a = Number(document.getElementById("distance-input").value);
                         let b = Math.ceil(Number(document.getElementById("time-input").value));
 
-                        // Находим элементы
+
                         let calcBtn = document.getElementById("main-calc-btn");
                         let resultBlock = document.getElementsByClassName("resalt")[0];
 
@@ -189,13 +187,12 @@
                         calcBtn.classList.add("hidden-fade");
                         resultBlock.classList.remove("hidden-fade");
 
-                        // Расчет стоимости
+
                         let hoursForCalc = b >= 2 ? b : 2;
                         let priceKm = a * 65;
                         let priceHours = hoursForCalc * 1500;
                         let totalPrice = priceKm + priceHours;
 
-                        // Вывод текста
                         document.getElementById("text-result").textContent = `Примерная цена ${totalPrice}р`;
                         document.getElementById("text-result-km").textContent = `Из которых   ${priceKm}р - это цена за расстояние (${a}км * 65)`;
 
@@ -214,11 +211,6 @@
                         calcBtn.classList.remove("hidden-fade");
                         resultBlock.classList.add("hidden-fade");
 
-                        // Очистка полей
-                        //document.getElementById("distance-input").value = "";
-                        //document.getElementById("distance-input").placeholder = "0 км";
-                        //document.getElementById("time-input").value = "";
-                        //document.getElementById("time-input").placeholder = "0 ч";
                     }
                 </script>
             </div>
@@ -246,7 +238,7 @@
                     </h3>
                 </div>
                 <div>
-                    <p>документы</p>
+                    <p><a href="downloaded_file.docx" target="_blank">Открыть договор об оказании услуг</a></p>
                 </div>
             </div>
         </div>

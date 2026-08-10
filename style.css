@@ -986,30 +986,58 @@ footer p::before {
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
-  } /* Исправление сетки калькулятора */
+  } /* === ТОТАЛЬНОЕ ИСПРАВЛЕНИЕ КАЛЬКУЛЯТОРА НА ТЕЛЕФОНЕ === */
   .calculatorMain .claculator {
-    padding: 20px;
-    margin: 20px 16px;
+    padding: 20px 16px;
+    margin: 20px auto;
     border-radius: 24px;
-    width: calc(100% - 32px);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #claculator1 {
+    gap: 20px;
+    width: 100%;
   }
   .calc-row {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Разворачиваем строку в столбик /align-items: stretch;     / Растягиваем элементы во всю ширину */
     gap: 8px;
+    width: 100%;
   }
   .calc-row h2 {
-    width: 100%;
+    width: 100% !important; /* Сбрасываем жесткие 250px */
+    max-width: 100%;
     font-size: 16px;
+    text-align: left;
   }
   .calc-row input {
-    width: 100%;
+    width: 100% !important; /* Сбрасываем жесткие 120px — инпут теперь на весь экран */
+    max-width: 100%;
     padding: 12px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  .calc-row .help-text {
+    width: 100%;
+    font-size: 13px;
+    color: #666;
+    margin-top: 2px;
+  }
+  .calculatorMain .calc-btn {
+    width: 100%; /* Кнопку "Посчитать" тоже делаем крупной мобильной */
+    padding: 14px;
+    font-size: 18px;
+    box-sizing: border-box;
   }
   #text-result {
     font-size: 20px;
     text-align: center;
+    width: 100%;
   }
+  #text-result-hours,
+  #text-result-km {
+    font-size: 16px;
+    text-align: center;
+  } /* === КОНЕЦ БЛОКА КАЛЬКУЛЯТОРА === */
   .contact {
     padding: 0 16px 30px;
   }
@@ -1024,7 +1052,7 @@ footer p::before {
   }
   .contact .contact-info a {
     font-size: 18px;
-    word-break: break-all; /* Чтобы длинный email не распирал экран телефона */
+    word-break: break-all;
   }
   .contact .contact-info .material-icons {
     font-size: 22px;

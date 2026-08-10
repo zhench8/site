@@ -842,269 +842,255 @@ footer p::before {
     grid-template-columns: 1fr;
     padding: 30px 30px 40px;
   }
-
   .info .main-Headline h1 {
     font-size: 40px;
   }
-
   .services .tarif {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .contact .contact-info {
     grid-template-columns: 1fr;
     padding: 25px;
   }
-
   .car .car-info {
     grid-template-columns: 1fr;
     padding: 25px;
   }
-
   .services .pay {
     max-width: 100%;
   }
-}
-
+} /* --- СТАНДАРТНЫЕ СМАРТФОНЫ (до 640px) --- */
 @media (max-width: 640px) {
   #first {
     padding: 12px 20px;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 12px;
   }
-
   #first h1 {
     font-size: 28px;
   }
-
   #first h1::before {
     content: "🚚 ";
     font-size: 24px;
   }
-
   #first a {
     font-size: 22px;
     padding: 6px 18px;
+    width: 100%;
+    justify-content: center;
   }
-
   nav {
     padding: 10px 16px;
     gap: 12px 20px;
     justify-content: center;
   }
-
   nav a {
     font-size: 18px;
   }
-
   .info {
     padding: 20px 16px 30px;
   }
-
   .info .main-Headline h1 {
     font-size: 30px;
   }
-
   .info .main-Headline p {
     font-size: 17px;
   }
-
   .main-info {
     border-radius: 24px;
+    width: 100%;
   }
-
   .main-info .top {
     padding: 20px 16px;
   }
-
   .main-info h2 {
     font-size: 22px;
   }
-
   .main-info .top p {
     font-size: 16px;
   }
-
   .main-info .phone {
     flex-direction: column;
     align-items: center;
     margin: 16px 16px;
     padding: 16px;
+    gap: 10px;
   }
-
   .main-info .phone .phone-icon {
-    margin: 0 0 12px 0;
+    margin: 0;
   }
-
   .main-info .phone .phone-info {
     margin-left: 0;
     text-align: center;
+    width: 100%;
   }
-
   .main-info .phone .phone-info a {
     font-size: 22px;
+    text-align: center;
   }
-
   .main-info .list {
     margin: 16px;
   }
-
   .main-info .list ul li {
     font-size: 16px;
   }
-
   .main-info .phone-call .phone-button {
     font-size: 20px;
     padding: 14px 16px;
     margin: 0 16px 20px;
+    display: flex;
+    width: calc(100% - 32px);
+    justify-content: center;
   }
-
   .services {
     padding: 0 16px 30px;
   }
-
   .services .tarif {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-
   .services #headlight,
   .car #car-headlight,
-  .contact #contact-headlight {
+  .contact #contact-headlight,
+  .calculatorMain #calculator-headlight {
     font-size: 28px;
+    max-width: 100%;
+    padding: 15px 0 10px;
   }
-
   .services .pay {
     padding: 20px;
     font-size: 18px;
+    border-radius: 20px;
   }
-
   .services .pay h1 {
     font-size: 24px;
   }
-
   .services .pay p {
     font-size: 16px;
   }
-
   .car {
     padding: 0 16px 30px;
   }
-
   .car .car-info {
     padding: 16px;
     margin: 0;
+    border-radius: 24px;
   }
-
   .car .car-info h2 {
     font-size: 22px;
   }
-
   .car .car-info #c-info li {
     font-size: 16px;
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
-  }
-
-  .car .car-info > div:last-child {
-    min-height: 120px;
-    font-size: 16px;
+  } /* Исправление сетки калькулятора */
+  .calculatorMain .claculator {
     padding: 20px;
+    margin: 20px 16px;
+    border-radius: 24px;
+    width: calc(100% - 32px);
   }
-
+  .calc-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .calc-row h2 {
+    width: 100%;
+    font-size: 16px;
+  }
+  .calc-row input {
+    width: 100%;
+    padding: 12px;
+  }
+  #text-result {
+    font-size: 20px;
+    text-align: center;
+  }
   .contact {
     padding: 0 16px 30px;
   }
-
   .contact .contact-info {
     padding: 20px;
+    border-radius: 24px;
+    gap: 20px;
   }
-
   .contact .contact-info h3 {
     font-size: 18px;
     padding: 6px 0;
   }
-
   .contact .contact-info a {
     font-size: 18px;
+    word-break: break-all; /* Чтобы длинный email не распирал экран телефона */
   }
-
   .contact .contact-info .material-icons {
     font-size: 22px;
     padding: 6px;
   }
-
+  .car .car-info > div:last-child {
+    min-height: 120px;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 16px;
+  }
   footer {
     min-height: 80px;
     padding: 15px 20px;
     font-size: 14px;
   }
-}
-
+} /* --- МАЛЕНЬКИЕ ЭКРАНЫ СМАРТФОНОВ (до 400px) --- */
 @media (max-width: 400px) {
   #first h1 {
     font-size: 22px;
   }
-
   #first a {
     font-size: 18px;
     padding: 4px 14px;
   }
-
   nav a {
     font-size: 16px;
   }
-
   .info .main-Headline h1 {
     font-size: 26px;
   }
-
   .info .main-Headline p {
     font-size: 15px;
   }
-
   .main-info h2 {
     font-size: 20px;
   }
-
   .main-info .phone .phone-info a {
     font-size: 20px;
   }
-
   .main-info .phone-call .phone-button {
     font-size: 18px;
   }
-
   .services .tarif h2 {
     font-size: 22px;
   }
-
   .services .tarif h3 {
     font-size: 20px;
   }
-
   .services .tarif ul,
   .services .tarif p {
     font-size: 16px;
   }
-
   .car .car-info h2 {
     font-size: 20px;
   }
-
   .contact .contact-info h3 {
     font-size: 16px;
   }
-
   .contact .contact-info a {
     font-size: 16px;
   }
-
   .services #headlight,
   .car #car-headlight,
-  .contact #contact-headlight {
+  .contact #contact-headlight,
+  .calculatorMain #calculator-headlight {
     font-size: 24px;
   }
 }

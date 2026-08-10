@@ -1089,10 +1089,24 @@ footer p::before {
     padding: 15px 20px;
     font-size: 14px;
   }
+  .contact .contact-info a,
+  footer a,
+  .main-info .list ul li a {
+    white-space: nowrap !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
 } /* --- МАЛЕНЬКИЕ ЭКРАНЫ СМАРТФОНОВ (до 400px) --- */
 @media (max-width: 400px) {
   #first h1 {
     font-size: 22px;
+  }
+  .contact .contact-info a,
+  footer a,
+  .main-info .list ul li a {
+    white-space: nowrap !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
   }
   #first a {
     font-size: 18px;

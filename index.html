@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
     <header id="first">
         <h1>Название</h1>
@@ -130,9 +131,32 @@
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <p>здесь будут фото</p>
+                <div style="text-align: center;">
+                    <img id="gallery" src="C:/Users/filip/OneDrive/Изображения/Screenshots/1.png" alt="Галерея"
+                        width="600" style="display: block; margin: 10px auto;">
+
+                    <button onclick="prevPhoto()">Назад</button>
+                    <button onclick="nextPhoto()">Вперед</button>
                 </div>
+
+                <script>
+                    const myPhotos = ["C:/Users/filip/OneDrive/Изображения/Screenshots/1.png",
+                        "C:/Users/filip/OneDrive/Изображения/Screenshots/2.png",
+                        "C:/Users/filip/OneDrive/Изображения/Screenshots/3.png"];
+                    let index = 0;
+                    const galleryImg = document.getElementById("gallery");
+
+                    function nextPhoto() {
+                        index = (index + 1) % myPhotos.length;
+                        galleryImg.src = myPhotos[index];
+                    }
+
+                    function prevPhoto() {
+                        index = (index - 1 + myPhotos.length) % myPhotos.length;
+                        galleryImg.src = myPhotos[index];
+                    }
+                </script>
+
             </div>
         </div>
         <div class="calculatorMain" id="calculator-anchor">

@@ -13,8 +13,8 @@
     <header id="first">
         <h1>Название</h1>
         <a href="tel: +7 (926) 996
-                        47 10"> +7 (926) 996
-            47 10</a>
+                        47 10">
+            +7 (926) 996 47 10</a>
     </header>
     <nav>
         <a href="#services-anchor">Тарифы</a>
@@ -48,8 +48,8 @@
                     <div class="phone-info">
                         <p id="top">Звоните в рабочее время</p>
                         <a href="tel: +7 (926) 996
-                        47 10"> +7 (926) 996
-                            47 10</a>
+                        47 10">
+                            +7 (926) 996 47 10</a>
                         <p id="bottom">ежедневно с 10:00 до 20:00</p>
                     </div>
                 </div>
@@ -92,9 +92,11 @@
                     <h3>Цена</h3>
                     <ul>
                         <li>65 рублей за километр</li>
-
                     </ul>
-                    <p>примерную цену можно посчитать в <a id="calc-link" href="#calculator-anchor">калькуляторе</a></p>
+                    <p>
+                        примерную цену можно посчитать в
+                        <a id="calc-link" href="#calculator-anchor">калькуляторе</a>
+                    </p>
                 </div>
                 <div id="tarif-third">
                     <h2>Индивидуальный тариф</h2>
@@ -131,119 +133,171 @@
                         </li>
                     </ul>
                 </div>
-                <div style="text-align: center;">
-                    <img id="gallery" src="C:/Users/filip/OneDrive/Изображения/Screenshots/1.png" alt="Галерея"
-                        width="600" style="display: block; margin: 10px auto;">
+                <div style="text-align: center; font-family: sans-serif">
+                    <div class="slider-container">
+                        <img id="gallery" src="1.png" alt="Галерея" />
 
-                    <button onclick="prevPhoto()">Назад</button>
-                    <button onclick="nextPhoto()">Вперед</button>
+                        <button class="slider-btn prev-btn" onclick="prevPhoto()">
+                            &#8249;
+                        </button>
+                        <button class="slider-btn next-btn" onclick="nextPhoto()">
+                            &#8250;
+                        </button>
+                    </div>
+
+                    <div class="thumbnails-container" id="thumbnails"></div>
                 </div>
 
                 <script>
-                    const myPhotos = ["C:/Users/filip/OneDrive/Изображения/Screenshots/1.png",
-                        "C:/Users/filip/OneDrive/Изображения/Screenshots/2.png",
-                        "C:/Users/filip/OneDrive/Изображения/Screenshots/3.png"];
+                    const myPhotos = ["1.png", "2.png", "3.png"];
                     let index = 0;
+
                     const galleryImg = document.getElementById("gallery");
+                    const thumbnailsContainer = document.getElementById("thumbnails");
+
+                    function initThumbnails() {
+                        myPhotos.forEach((src, idx) => {
+                            const img = document.createElement("img");
+                            img.src = src;
+                            img.classList.add("thumb");
+                            if (idx === 0) img.classList.add("active"); /
+
+                            img.onclick = () => changePhotoWithFade(idx);
+
+                            thumbnailsContainer.appendChild(img);
+                        });
+                    }
+
+                    function changePhotoWithFade(newIndex) {
+                        galleryImg.style.opacity = 0;
+
+                        setTimeout(() => {
+                            index = newIndex;
+                            galleryImg.src = myPhotos[index];
+                            galleryImg.style.opacity = 1;
+
+                            updateThumbnails();
+                        }, 400);
+                    }
+
+                    function updateThumbnails() {
+                        const thumbs = document.querySelectorAll(".thumb");
+                        thumbs.forEach((thumb, idx) => {
+                            if (idx === index) {
+                                thumb.classList.add("active");
+                            } else {
+                                thumb.classList.remove("active");
+                            }
+                        });
+                    }
 
                     function nextPhoto() {
-                        index = (index + 1) % myPhotos.length;
-                        galleryImg.src = myPhotos[index];
+                        let newIndex = (index + 1) % myPhotos.length;
+                        changePhotoWithFade(newIndex);
                     }
 
                     function prevPhoto() {
-                        index = (index - 1 + myPhotos.length) % myPhotos.length;
-                        galleryImg.src = myPhotos[index];
+                        let newIndex = (index - 1 + myPhotos.length) % myPhotos.length;
+                        changePhotoWithFade(newIndex);
                     }
+
+                    initThumbnails();
                 </script>
-
             </div>
-        </div>
-        <div class="calculatorMain" id="calculator-anchor">
-            <div id="calculator-headlight">
-                <h1>Калькулятор</h1>
-            </div>
-
-
-            <div class="claculator">
-                <div id="claculator1">
-                    <div class="calc-row" id="distance-info">
-                        <h2>Количество километров</h2>
-                        <input type="number" id="distance-input" placeholder="0 Км" />
-                    </div>
-
-                    <div class="calc-row" id="time-info">
-                        <h2>Количество часов</h2>
-                        <input type="number" id="time-input" placeholder="0 Ч" />
-                        <p class="help-text">
-                            Заказ включает два часа на погрузку и разгрузку, время в пути не учитывается.
-                            Если потребуется более двух часов, то каждый час 1500р (считаются только целые часы,
-                            округляются в большую сторону).
-                        </p>
-                    </div>
-
-                    <button class="calc-btn" id="main-calc-btn" onclick="result()">Посчитать</button>
-
-                    <div class="resalt hidden-fade">
-                        <p id="text-result"></p>
-                        <p id="text-result-km"></p>
-                        <p id="text-result-hours"></p>
-                        <button class="calc-btn" onclick="onemore()">Посчитать заново</button>
-                    </div>
-
-                    <div class="claculator-how-it-work">
-                        <div class="headlight">
-                            <h3>Из чего складывается цена</h3>
-                        </div>
-                        <p>Цена формируется из суммарного времени на загрузку/разгрузку + количества километров в пути.
-                        </p>
-                        <p>Данный калькулятор показывает лишь справочную информацию, реальную стоимость можно узнать по
-                            телефону.</p>
-                    </div>
+            <div class="calculatorMain" id="calculator-anchor">
+                <div id="calculator-headlight">
+                    <h1>Калькулятор</h1>
                 </div>
 
-                <script>
-                    function result() {
-                        let a = Number(document.getElementById("distance-input").value);
-                        let b = Math.ceil(Number(document.getElementById("time-input").value));
+                <div class="claculator">
+                    <div id="claculator1">
+                        <div class="calc-row" id="distance-info">
+                            <h2>Количество километров</h2>
+                            <input type="number" id="distance-input" placeholder="0 Км" />
+                        </div>
 
+                        <div class="calc-row" id="time-info">
+                            <h2>Количество часов</h2>
+                            <input type="number" id="time-input" placeholder="0 Ч" />
+                            <p class="help-text">
+                                Заказ включает два часа на погрузку и разгрузку, время в пути
+                                не учитывается. Если потребуется более двух часов, то каждый
+                                час 1500р (считаются только целые часы, округляются в большую
+                                сторону).
+                            </p>
+                        </div>
 
-                        let calcBtn = document.getElementById("main-calc-btn");
-                        let resultBlock = document.getElementsByClassName("resalt")[0];
+                        <button class="calc-btn" id="main-calc-btn" onclick="result()">
+                            Посчитать
+                        </button>
 
+                        <div class="resalt hidden-fade">
+                            <p id="text-result"></p>
+                            <p id="text-result-km"></p>
+                            <p id="text-result-hours"></p>
+                            <button class="calc-btn" onclick="onemore()">
+                                Посчитать заново
+                            </button>
+                        </div>
 
-                        calcBtn.classList.add("hidden-fade");
-                        resultBlock.classList.remove("hidden-fade");
+                        <div class="claculator-how-it-work">
+                            <div class="headlight">
+                                <h3>Из чего складывается цена</h3>
+                            </div>
+                            <p>
+                                Цена формируется из суммарного времени на загрузку/разгрузку +
+                                количества километров в пути.
+                            </p>
+                            <p>
+                                Данный калькулятор показывает лишь справочную информацию,
+                                реальную стоимость можно узнать по телефону.
+                            </p>
+                        </div>
+                    </div>
 
+                    <script>
+                        function result() {
+                            let a = Number(document.getElementById("distance-input").value);
+                            let b = Math.ceil(
+                                Number(document.getElementById("time-input").value),
+                            );
 
-                        let hoursForCalc = b >= 2 ? b : 2;
-                        let priceKm = a * 65;
-                        let priceHours = hoursForCalc * 1500;
-                        let totalPrice = priceKm + priceHours;
+                            let calcBtn = document.getElementById("main-calc-btn");
+                            let resultBlock = document.getElementsByClassName("resalt")[0];
 
-                        document.getElementById("text-result").textContent = `Примерная цена ${totalPrice}р`;
-                        document.getElementById("text-result-km").textContent = `Из которых   ${priceKm}р - это цена за расстояние (${a}км * 65)`;
+                            calcBtn.classList.add("hidden-fade");
+                            resultBlock.classList.remove("hidden-fade");
 
-                        if (b >= 2) {
-                            document.getElementById("text-result-hours").textContent = `Из которых   ${priceHours}р - это цена за время (${b} часов * 1500)`;
-                        } else {
-                            document.getElementById("text-result-hours").textContent = `Из которых   ${priceHours}р - это цена за время (2 часа * 1500, фиксированная ставка)`;
+                            let hoursForCalc = b >= 2 ? b : 2;
+                            let priceKm = a * 65;
+                            let priceHours = hoursForCalc * 1500;
+                            let totalPrice = priceKm + priceHours;
+
+                            document.getElementById("text-result").textContent =
+                                `Примерная цена ${totalPrice}р`;
+                            document.getElementById("text-result-km").textContent =
+                                `Из которых   ${priceKm}р - это цена за расстояние (${a}км * 65)`;
+
+                            if (b >= 2) {
+                                document.getElementById("text-result-hours").textContent =
+                                    `Из которых   ${priceHours}р - это цена за время (${b} часов * 1500)`;
+                            } else {
+                                document.getElementById("text-result-hours").textContent =
+                                    `Из которых   ${priceHours}р - это цена за время (2 часа * 1500, фиксированная ставка)`;
+                            }
                         }
-                    }
 
-                    function onemore() {
-                        let calcBtn = document.getElementById("main-calc-btn");
-                        let resultBlock = document.getElementsByClassName("resalt")[0];
+                        function onemore() {
+                            let calcBtn = document.getElementById("main-calc-btn");
+                            let resultBlock = document.getElementsByClassName("resalt")[0];
 
-                        // ПЛАВНАЯ СМЕНА НАЗАД
-                        calcBtn.classList.remove("hidden-fade");
-                        resultBlock.classList.add("hidden-fade");
-
-                    }
-                </script>
+                            // ПЛАВНАЯ СМЕНА НАЗАД
+                            calcBtn.classList.remove("hidden-fade");
+                            resultBlock.classList.add("hidden-fade");
+                        }
+                    </script>
+                </div>
             </div>
-
-        </div>
         </div>
         <div class="contact" id="contact-anchor">
             <div id="contact-headlight">
@@ -266,7 +320,9 @@
                     </h3>
                 </div>
                 <div>
-                    <p><a href="downloaded_file.docx" target="_blank">Скачать договор об оказании услуг</a></p>
+                    <p>
+                        <a href="downloaded_file.docx" target="_blank">Скачать договор об оказании услуг</a>
+                    </p>
                 </div>
             </div>
         </div>
